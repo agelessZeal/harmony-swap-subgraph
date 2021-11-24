@@ -1,15 +1,15 @@
 {
   "name": "exchange",
-  "description": "PancakeSwap Subgraph",
+  "description": "HarmonySwap Subgraph",
   "version": "1.0.0",
   "repository": "git@github.com:pancakeswap/pancake-subgraph.git",
-  "author": "PancakeSwap",
+  "author": "HarmonySwap",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "codegen": "graph codegen subgraph.yaml",
     "build": "graph build subgraph.yaml",
-    "create-harmony": "graph create --node https://graph.t.hmny.io:8020 harmony/blocks",
-    "deploy-harmony": "graph deploy --node https://graph.t.hmny.io:8020 --ipfs http://graph.t.hmny.io:5001 harmony/blocks",
+    "create-harmony": "graph create --node https://graph.t.hmny.io:8020 harmony/harmonyswap",
+    "deploy-harmony": "graph deploy --node https://graph.t.hmny.io:8020 --ipfs http://graph.t.hmny.io:5001 harmony/harmonyswap",
     "deploy": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ pancakeswap/exchange subgraph.yaml"
   }
 }
