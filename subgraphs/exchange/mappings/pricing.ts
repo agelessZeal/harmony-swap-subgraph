@@ -3,27 +3,29 @@ import { BigDecimal, Address } from "@graphprotocol/graph-ts/index";
 import { Pair, Token, Bundle } from "../generated/schema";
 import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD } from "./utils";
 
-let WBNB_ADDRESS = "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c";
-let BUSD_WBNB_PAIR = "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16"; // created block 589414
-let USDT_WBNB_PAIR = "0x16b9a82891338f9ba80e2d6970fdda79d1eb0dae"; // created block 648115
+let WBNB_ADDRESS = "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a";
+let BUSD_WBNB_PAIR = ""; // created block 589414
+let USDT_WBNB_PAIR = "0xed0b3c9e81cb4bed33570229c89e6d82314287cb"; // created block 648115
 
 export function getBnbPriceInUSD(): BigDecimal {
   // fetch eth prices for each stablecoin
   let usdtPair = Pair.load(USDT_WBNB_PAIR); // usdt is token0
-  let busdPair = Pair.load(BUSD_WBNB_PAIR); // busd is token1
+  // let busdPair = Pair.load(BUSD_WBNB_PAIR); // busd is token1
 
-  if (busdPair !== null && usdtPair !== null) {
-    let totalLiquidityBNB = busdPair.reserve0.plus(usdtPair.reserve1);
-    if (totalLiquidityBNB.notEqual(ZERO_BD)) {
-      let busdWeight = busdPair.reserve0.div(totalLiquidityBNB);
-      let usdtWeight = usdtPair.reserve1.div(totalLiquidityBNB);
-      return busdPair.token1Price.times(busdWeight).plus(usdtPair.token0Price.times(usdtWeight));
-    } else {
-      return ZERO_BD;
-    }
-  } else if (busdPair !== null) {
-    return busdPair.token1Price;
-  } else if (usdtPair !== null) {
+  // if (busdPair !== null && usdtPair !== null) {
+  //   let totalLiquidityBNB = busdPair.reserve0.plus(usdtPair.reserve1);
+  //   if (totalLiquidityBNB.notEqual(ZERO_BD)) {
+  //     let busdWeight = busdPair.reserve0.div(totalLiquidityBNB);
+  //     let usdtWeight = usdtPair.reserve1.div(totalLiquidityBNB);
+  //     return busdPair.token1Price.times(busdWeight).plus(usdtPair.token0Price.times(usdtWeight));
+  //   } else {
+  //     return ZERO_BD;
+  //   }
+  // } else if (busdPair !== null) {
+  //   return busdPair.token1Price;
+  // } else 
+  
+  if (usdtPair !== null) {
     return usdtPair.token0Price;
   } else {
     return ZERO_BD;

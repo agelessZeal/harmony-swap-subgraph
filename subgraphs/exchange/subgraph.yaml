@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 description: Harmonyswap is a decentralized protocol for automated token exchange on Harmony chain.
-repository: https://github.com/pancakeswap
+repository: https://github.com/agelessZeal/harmony-swap-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
