@@ -1,4 +1,4 @@
-# PancakeSwap Subgraph
+# HarmonySwap on Harmony Chain Subgraph
 
 TheGraph exposes a GraphQL endpoint to query the events and entities within the Binance Smart Chain and PancakeSwap ecosystem.
 
